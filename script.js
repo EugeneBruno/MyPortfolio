@@ -1,14 +1,11 @@
-document.addEventListener('DOMContentLoaded', ()=>{
-    const hambuger = document.querySelector('.hambuger')
-    const navlinks = document.querySelector('.nav-links')
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('profiles').classList.remove('hidden');
+  }, 2500); // intro logo duration
+};
 
-    hambuger.addEventListener('click',()=>{
-        navlinks.classList.toggle('active')
-    })
-    navlinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A'){
-            navlinks.classList.remove('active')
-        }
-    })
-})
-
+function enterSite() {
+  document.getElementById('profiles').style.display = 'none';
+  document.getElementById('main').classList.remove('hidden');
+}

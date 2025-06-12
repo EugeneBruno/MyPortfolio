@@ -1,56 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-     <script src="app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyFlixfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- <canvas id="bg"></canvas> -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
 
-        <div class="hambuger" id="hambuger">
-            &#9776;
-        </div>
-        <div class="nav2">
-            <h1>King<span>Bruno</span></h1>
-        </div>
-    </nav>
-    <section id="home" class="home">
-        <div class="home1">
-            <p style="color: #007bff;">Hello, Welcome</p>
-            <h6>I'm Ayalogu Eugene</h6>
-            <p>Software Engineer | Web Developer | App Developer | Data Analyst  </p>
-        </div>
-        <div class="home2">
-            <div class="image-container">
-                <img src="./assets/Subject-2.png" alt="" class="profile-img">
-            </div>
-        </div>
-        
+  <!-- Netflix Intro Animation -->
+  <div id="intro">
+    <div class="logo-flicker">MYFLIX</div>
+  </div>
+
+  <!-- Who's Watching -->
+  <div id="profiles" class="hidden">
+    <h2>Who's watching?</h2>
+    <div class="profile-container">
+      <div class="profile" onclick="enterSite('recruiter')">
+        <img src="https://i.pravatar.cc/150?u=recruiter" alt="Recruiter" />
+        <p>Recruiter</p>
+      </div>
+      <div class="profile" onclick="enterSite('supervisor')">
+        <img src="https://i.pravatar.cc/150?u=supervisor" alt="Supervisor" />
+        <p>Supervisor</p>
+      </div>
+      <div class="profile" onclick="enterSite('colleague')">
+        <img src="https://i.pravatar.cc/150?u=colleague" alt="Colleague" />
+        <p>Colleague</p>
+      </div>
+      <div class="profile" onclick="enterSite('acquaintance')">
+        <img src="https://i.pravatar.cc/150?u=acquaintance" alt="Acquaintance" />
+        <p>Acquaintance</p>
+      </div>
+      <div class="profile" onclick="enterSite('other')">
+        <img src="https://i.pravatar.cc/150?u=other" alt="Other" />
+        <p>Other</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site -->
+  <div id="main" class="hidden">
+    <header>
+      <div class="logo">MyFlixfolio</div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="viewer-intro" class="hidden">
+      <h2 id="viewer-heading" class="viewer-text"></h2>
+      <p id="viewer-message" class="viewer-text"></p>
     </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I am a Software Engineering Student passionate about building immersive web experiencies. </p>
+    <section class="hero">
+      <h1>Cinematic Web Experiences</h1>
+      <p>Developer. Designer. Storyteller.</p>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <p>Project Title</p>
-        </div>
+
+    <section id="projects" class="slider">
+      <h2>Featured Projects</h2>
+      <div class="row">
+        <div class="card"><img src="https://via.placeholder.com/300x170" alt=""><p>Voice AI</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x170" alt=""><p>Dashboard</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x170" alt=""><p>Movie DB</p></div>
+        <div class="card"><img src="https://via.placeholder.com/300x170" alt=""><p>Portfolio</p></div>
+      </div>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: example@email.com</p>
-    </section>
+
+    <footer>
+      <p>&copy; 2025 Your Name. Netflix-inspired portfolio.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

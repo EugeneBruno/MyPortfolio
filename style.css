@@ -1,3 +1,4 @@
+/* Reset and Base */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,8 @@ body {
   overflow-x: hidden;
 }
 
-/* Intro */
+/* Netflix-Style Intro */
+/* Intro Styling */
 #intro {
   background: #000;
   height: 100vh;
@@ -18,18 +20,66 @@ body {
   justify-content: center;
   align-items: center;
 }
-.logo-flicker {
+
+.logo-curve {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   font-size: 5rem;
   font-weight: bold;
-  color: red;
-  animation: flicker 2s ease-in-out forwards;
+  color: #e50914;
+  overflow: hidden;
+  transform: scale(1.05);
 }
-@keyframes flicker {
+
+/* First letter slides in */
+.first-letter {
+  display: inline-block;
+  transform: translateX(-200px);
+  animation: slideIn 1s ease-out forwards;
+}
+
+/* Remaining letters appear one-by-one with a curve */
+.logo-curve span:not(.first-letter) {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(calc(10px * sin(var(--i) * 0.8)));
+  animation: curveFadeIn 0.6s ease-out forwards;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+/* Slide-in from left */
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Curve fade-in effect */
+@keyframes curveFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(calc(10px * sin(var(--i) * 0.8))) scale(1);
+  }
+}
+
+@keyframes fadeInFlicker {
   0% {opacity: 0;}
-  25% {opacity: 0.4;}
-  50% {opacity: 1;}
-  75% {opacity: 0.8;}
-  100% {opacity: 0;}
+  20% {opacity: 0.3;}
+  40% {opacity: 0.6;}
+  60% {opacity: 1;}
+  80% {opacity: 0.9;}
+  100% {opacity: 1;}
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Who's Watching */
@@ -40,6 +90,7 @@ body {
 .profile-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 .profile {
@@ -58,13 +109,14 @@ body {
   color: #aaa;
 }
 
-/* Main Layout */
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #000;
   padding: 1rem 2rem;
+  flex-wrap: wrap;
 }
 .logo {
   color: #e50914;
@@ -79,6 +131,17 @@ nav a {
 nav a:hover {
   color: #fff;
 }
+
+/* Viewer Message */
+#viewer-intro {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.viewer-text {
+  color: #ccc;
+}
+
+/* Hero Section */
 .hero {
   padding: 6rem 2rem;
   text-align: center;
@@ -92,7 +155,7 @@ nav a:hover {
   color: #bbb;
 }
 
-/* Netflix-style row slider */
+/* Project Slider */
 .slider {
   padding: 2rem;
 }
@@ -137,4 +200,27 @@ footer {
 /* Utilities */
 .hidden {
   display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header, .hero, .projects, .slider {
+    padding: 1rem;
+  }
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  .row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
 }
